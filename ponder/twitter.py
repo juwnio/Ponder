@@ -7,10 +7,10 @@ load_dotenv()
 
 def post_tweet(created_post):
     # Load Twitter API credentials from environment variables
-    consumer_key = os.getenv('CONSUMER_API_KEY')
-    consumer_secret = os.getenv('CONSUMER_API_SECRET_KEY')
-    access_token = os.getenv('ACCESS_TOKEN')
-    access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
+    consumer_key = os.environ.get('CONSUMER_API_KEY')
+    consumer_secret = os.environ.get('CONSUMER_API_SECRET_KEY')
+    access_token = os.environ.get('ACCESS_TOKEN')
+    access_token_secret = os.environ.get('ACCESS_TOKEN_SECRET')
 
     # Create Tweepy Client with OAuth 1.0a user context credentials
     client = tweepy.Client(

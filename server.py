@@ -28,6 +28,6 @@ def activate_ponder_endpoint():
 
 if __name__ == "__main__":
     scheduler = BackgroundScheduler()
-    scheduler.add_job(run_ponder_job, 'cron', hour=0, minute=0)
+    scheduler.add_job(run_ponder_job, 'cron', hour=0, minute=30)
     scheduler.start()
     app.run(host="0.0.0.0", port=5000)

@@ -8,7 +8,7 @@ load_dotenv()
 def model_trigger(the_context, the_style, the_story_objects):
 
     client = Groq(
-        api_key=os.getenv('GROQ_API_KEY'),
+        api_key=os.environ.get('GROQ_API_KEY'),
     )
 
     chat_completion = client.chat.completions.create(

@@ -1,7 +1,6 @@
-
 from flask import Flask, request, jsonify
-from app import pick_story_objects, get_context, get_style
-from groqq import model_trigger
+from ponder.app import pick_story_objects, get_context, get_style
+from ponder.groqq import model_trigger
 from apscheduler.schedulers.background import BackgroundScheduler
 
 
@@ -12,7 +11,9 @@ def run_ponder_job():
     context = get_context()
     style = get_style()
     tweet = model_trigger(context, style, story_objects)
-    from twitter import post_tweet
+
+    from ponder.twitter import post_tweet
+    
     print(f"tweet created: {tweet}")
     print("Now attempting post")
     post_tweet(tweet)

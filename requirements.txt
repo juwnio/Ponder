@@ -1,0 +1,4 @@
+groq
+flask
+tweepy
+python-dotenv

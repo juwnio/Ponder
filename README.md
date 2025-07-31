@@ -21,7 +21,11 @@ Ponder is a proof of concept script originally created to explore communication 
 
 *`I do not plan on updating this repository as often because of prioritery needs of attention from other projects, but if i ever do:`*
 
-- I wider raneg of philosophers & Topics (less ambiguous), external iteration   option of these names and topics.
+- I wider range of philosophers & Topics (less ambiguous), external iteration option of these names and topics.
+
+
+
+
 
 <a href="https://groq.com" target="_blank" rel="noopener noreferrer">
   <img
@@ -29,5 +33,3 @@ Ponder is a proof of concept script originally created to explore communication 
     alt="Powered by Groq for fast inference."
   />
 </a>
-
-*Thank you*

@@ -2,3 +2,6 @@ groq
 flask
 tweepy
 python-dotenv
+flask
+apscheduler
+requests

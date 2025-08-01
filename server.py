@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 from ponder.app import pick_story_objects, get_context, get_style
 from ponder.groqq import model_trigger
-from apscheduler.schedulers.background import BackgroundScheduler
+
+import schedule
+import threading
+import time
 
 
 app = Flask(__name__)
@@ -26,8 +29,13 @@ def activate_ponder_endpoint():
     return jsonify({"status": "Ponder activated and tweet posted."})
 
 
+def run_schedule():
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
 if __name__ == "__main__":
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(run_ponder_job, 'cron', hour=0, minute=30)
-    scheduler.start()
+    schedule.every().day.at("05:00").do(run_ponder_job)
+    t = threading.Thread(target=run_schedule, daemon=True)
+    t.start()
     app.run(host="0.0.0.0", port=5000)

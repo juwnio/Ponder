@@ -3,6 +3,5 @@ flask
 tweepy
 python-dotenv
 flask
-apscheduler
 requests
 schedule

@@ -1,28 +1,30 @@
-from app import pick_story_objects, get_context, get_style
-from groqq import model_trigger
+from .app import pick_story_objects, get_context, get_style
+from .groqq import model_trigger
 
 # Activate Ponder
 def activate_ponder():
+    try:
+        print("Starting ponder activation...")
+        
+        story_objects = pick_story_objects()
+        print(f"Selected: {story_objects}")
 
-    story_objects = pick_story_objects()
+        context = get_context()
+        print("Context loaded successfully")
 
-    context = get_context()
+        style = get_style()
+        print("Style loaded successfully")
 
-    style = get_style()
+        tweet = model_trigger(context, style, story_objects)
+        print(f"Tweet created: {tweet}")
 
-    tweet = model_trigger(context, style, story_objects)
+        # Post the tweet
+        from .twitter import post_tweet
 
-    # Post the tweet
+        print("Now attempting post...")
+        post_tweet(tweet)
+        print("Post successful!")
 
-    from twitter import post_tweet
-
-    print(f"tweet created: {tweet}")
-
-    print("Now attempting post")
-
-    post_tweet(tweet)
-
-    print("Post successful")
-
-
-
+    except Exception as e:
+        print(f"Error in activate_ponder: {e}")
+        raise

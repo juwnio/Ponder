@@ -2,7 +2,7 @@ name: Run Python Script
 
 on:
   schedule:
-    - cron: '30 13 * * *'  # runs daily at 1:30 PM UTC (2:30 PM Glasgow during BST)
+    - cron: '30 14 * * *'  # runs daily at 1:30 PM UTC (2:30 PM Glasgow during BST)
 
 jobs:
   execute-script:
